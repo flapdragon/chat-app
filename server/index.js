@@ -7,7 +7,7 @@ import { fileURLToPath } from "url"
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const app = express()
-const port = 3300
+const port = 8000
 
 const server = http.createServer(app)
 
