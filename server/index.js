@@ -17,14 +17,17 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html")
 })
 
-io.on("connection", (socket) => {
-  console.log("a user connected")
-})
-
-io.on('connection', (socket) => {
-  socket.on('chat message', (msg) => {
-    console.log('message: ' + msg)
+app.get("/chat", (req, res) => {
+  io.on("connection", (socket) => {
+    console.log("a user connected")
   })
+  
+  io.on('connection', (socket) => {
+    socket.on('chat message', (msg) => {
+      console.log('message: ' + msg)
+    })
+  })
+  res.sendFile(__dirname + "/index.html")
 })
 
 server.listen(port, () => {
